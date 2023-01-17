@@ -5,6 +5,9 @@
   "keywords": [
     "reaxml", "rea", "real estate", "php"
   ],
+  "require": {
+    "nesbot/carbon": "^1.21"
+  },
   "autoload": {
     "psr-4": {
       "ThinkReaXMLParser\\": "src/thinkeryreaxml"
