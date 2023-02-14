@@ -5,6 +5,7 @@ namespace ThinkReaXMLParser\Objects\Listings;
 use Carbon\Carbon;
 use SimpleXMLElement;
 use ThinkReaXMLParser\Objects\Address;
+use ThinkReaXMLParser\Objects\Attachment;
 use ThinkReaXMLParser\Objects\Detail;
 use ThinkReaXMLParser\Objects\ImageObject;
 use ThinkReaXMLParser\Objects\InspectionTime;
@@ -57,6 +58,7 @@ abstract class Listing
     /* @var Media $media */
     protected $media;
     protected $inspection_times = [];
+    protected $attachments;
     protected $feature_groups = [
         'features',
         'otherFeatures',
@@ -95,6 +97,7 @@ abstract class Listing
                 $this->setAgents($xml->listingAgent->xpath('//listingAgent'));
             }
             $this->setMedia($xml);
+            $this->setAttachments($xml);
             $this->setVideo((string)$xml->videoLink->attributes()->href);
             $this->setPriceView((string)$xml->priceView);
             if ($xml->price) {
@@ -788,6 +791,12 @@ abstract class Listing
     public function setMedia($objects)
     {
         $this->media = new Media($objects);
+        return $this;
+    }
+
+    public function setAttachments($objects)
+    {
+        $this->attachments = new Attachment($objects);
         return $this;
     }
 
