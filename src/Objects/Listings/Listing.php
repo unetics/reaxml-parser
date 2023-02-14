@@ -70,9 +70,7 @@ abstract class Listing
         'vendorDetails',
     ];
     // set the inactive statuses here
-    protected $inactive = [
-        'leased', 'withdrawn', 'sold', 'rented'
-    ];
+    protected $inactive = []; //'leased', 'withdrawn', 'sold', 'rented' Depreciated I want it all
 
     public function __construct(SimpleXMLElement $xml)
     {
