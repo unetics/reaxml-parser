@@ -95,7 +95,7 @@ abstract class Listing
                 $this->setAgents($xml->listingAgent->xpath('//listingAgent'));
             }
             $this->setMedia($xml);
-            $this->setVideo((string)$xml->videoLink);
+            $this->setVideo((string)$xml->videoLink->attributes()->href);
             $this->setPriceView((string)$xml->priceView);
             if ($xml->price) {
                 $this->setPrice((int)$xml->price);
